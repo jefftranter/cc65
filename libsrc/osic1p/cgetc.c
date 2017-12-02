@@ -160,8 +160,10 @@ char cgetc (void)
         key = lastKey; // If so, use it.
         lastKey = 0; // Then clear it.
     } else {
-        while ((key = getkey()) != 0)
+        while ((key = getkey()) == 0)
             ; // Wait for key to be pressed.
+        while (getkey() != 0)
+            ; // Wait for key to be released
     }
     return key;
 }

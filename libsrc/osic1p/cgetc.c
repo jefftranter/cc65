@@ -162,6 +162,8 @@ char cgetc (void)
     } else {
         while ((key = getkey()) == 0)
             ; // Wait for key to be pressed.
+        while (getkey() != 0)
+            ; // Wait for key to be released
     }
     return key;
 }
